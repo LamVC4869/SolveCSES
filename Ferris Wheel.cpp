@@ -4,6 +4,20 @@
 - nếu bạn B quá nặng so với thuyền thì chuyển lên đầu hàng. Cho bạn đầu hàng lên thuyền nếu bạn đó đủ hoặc dưới khối lượng thuyền có thể chứa (lúc này tăng số thuyền thêm 1 vì đã đủ 2 bạn). Nếu bạn vẫn quá nặng so với thuyền thì ta tăng thêm số thuyền là 1 và quay trở lại bước 1.
 - thực hiện tuần tự như vậy cho đến khi không còn bạn nào không lên thuyền.
 - Độ phức tạp: O(nlog(n))
+Ví dụ:
+Input:
+8 22
+6 10 7 6 9 10 7 7
+Output:
+4
+Giải:
+- Đầu tiên sắp xếp dãy tăng dần
+=> P = 6, 6, 7, 7, 7, 9, 10, 10
+lúc này ta có thuyền chịu được trọng tải tối đa là 22
+- Bắt đầu với bạn cuối cùng ta có trọng tải còn lại là 12, tiếp tục đến bạn phía trước thì thuyền còn chịu được 2 (22 - 10 - 10) nhưng do đã đủ 2 bạn nên ta đếm được 1 chiếc thuyền.
+- Tiếp theo với chiếc thứ 2 ta làm tương tự thì thuyền còn chịu được (22 - 9 - 7 = 6) nhưng do đã đủ 2 bạn nên ta đếm được thêm 1 chiếc thuyền.
+- Tương tự với chiếc thứ 3 ta được 2 bạn có cân nặng là 7 và 7 (chiếc thứ 3)
+- Cuối cùng là 2 bạn có cân nặng là 6 và 6, lúc này con trỏ cuối nhỏ hơn con trỏ đầu nên dừng chương trình và cộng thêm chiếc thuyền cuối đó ta được 4 chiếc thuyền cho toàn bộ bạn nhỏ.
 Code:
 #include <bits/stdc++.h>
 #define FOR(i, a, b) for(int i = a; i <= b; ++i)
